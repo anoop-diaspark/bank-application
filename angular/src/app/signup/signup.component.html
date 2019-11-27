@@ -1,0 +1,88 @@
+<!-- Default form register -->
+<div class="container">
+    <form class="text-center border border-light p-5" [formGroup]="userRegistraton" (submit)="onSubmit()">
+
+        <p class="h4 mb-4" style="color:#17a2b8!important;">Sign Up</p>
+
+        <div class="form-row mb-4">
+            <div class="col">
+                <!-- First name -->
+                <input type="text" id="defaultRegisterFormFirstName" formControlName="firstName"
+                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" class="form-control"
+                    placeholder="First name">
+                <div *ngIf="submitted && !!f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="!!f.firstName.errors.required">First name is required</div>
+                </div>
+            </div>
+            <div class="col">
+                <!-- Last name -->
+                <input type="text" id="defaultRegisterFormLastName"
+                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" formControlName="lastName"
+                    class="form-control" placeholder="Last name">
+                <div *ngIf="submitted && !!f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="!!f.lastName.errors.required">Last Name is required</div>
+                    <div *ngIf="!!f.lastName.errors.pattern">Invalid input</div>
+                </div>
+            </div>
+        </div>
+        <!-- User ID -->
+        <input type="text" id="defaultRegisterFormUserID" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
+            formControlName="userName" class="form-control" placeholder="Enter  UserID">
+        <div *ngIf="submitted && !!f.userName.errors" class="invalid-feedback">
+            <div *ngIf="!!f.userName.errors.required">userName is required</div>
+            <div *ngIf="!!f.userName.errors.pattern">Invalid input</div>
+        </div>
+        <!-- E-mail -->
+        <br><input type="email" id="defaultRegisterFormEmail"
+            [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }" formControlName="emailId"
+            class="form-control mb-4" placeholder="E-mail">
+        <div *ngIf="submitted && !!f.emailId.errors" class="invalid-feedback">
+            <div *ngIf="!!f.emailId.errors.required">Email is required</div>
+            <div *ngIf="!!f.emailId.errors.pattern">Invalid input</div>
+        </div>
+        <!-- Password -->
+        <input type="password" id="defaultRegisterFormPassword"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password" class="form-control"
+            placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback">
+            <div *ngIf="!!f.password.errors.required"> Password is required</div>
+            <div *ngIf="!!f.password.errors.mustMatch">Passwords must match</div>
+            <div *ngIf="!!f.password.errors.pattern">Password Must Contain atleast 1 Upper Case, 1 Lower
+                Case and 1 Special Character </div>
+        </div>
+        <!-- confirm password -->
+        <br><input type="password" id="defaultRegisterFormConfirmPassword" formControlName="confirmPassword"
+            [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" class="form-control"
+            placeholder=" Confirm Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <div *ngIf="submitted && !!f.confirmPassword.errors" class="invalid-feedback">
+            <div *ngIf="!!f.confirmPassword.errors.required"> Password is required</div>
+            <div *ngIf="!!f.confirmPassword.errors.mustMatch">Passwords must match</div>
+        </div>
+
+
+        <!-- Phone number --><br>
+        <input type="number" id="defaultRegisterPhonePassword" formControlName="mobileNumber"
+            [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }" class="form-control"
+            placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        <div *ngIf="submitted && !!f.mobileNumber.errors" class="invalid-feedback">
+            <div *ngIf="!!f.mobileNumber.errors.required">Phone is required</div>
+            <div *ngIf="!!f.mobileNumber.errors.minlength && !!f.mobileNumber.errors.maxlength">Must contain 10 digits
+            </div>
+            <div *ngIf="!!f.mobileNumber.errors.pattern">Invalid input</div>
+        </div><br>
+        <!-- Terms of service -->
+        <p style="font-size: 0.7em;">By clicking
+                Register you agree to our
+                <a href="" target="_blank">terms of service</a></p>
+        <!-- Sign up button -->
+        <button class="btn btn2 btn-lg btn-block" [disabled]="loading" (click)="onSubmit()"><i class="fa"
+                [ngClass]="{'fa-spin fa-spinner': loading}">
+
+            </i> {{button}}</button>
+
+        <div *ngIf="error" class="alert alert-danger">{{error.message}}</div>
+
+
+    </form>
+</div>
+<!-- Default form register -->

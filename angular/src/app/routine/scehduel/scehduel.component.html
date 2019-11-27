@@ -1,0 +1,54 @@
+<div>
+  <mat-toolbar>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-toolbar>
+  <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <mat-form-field>
+            <mat-label>Select Country</mat-label>
+            <mat-select formControlName="countryName" required>
+              <mat-option>--</mat-option>
+              <mat-option *ngFor="let country of countryName" [value]="country.value">
+                {{country.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input type="date" style="color:blueviolet" formControlName="matchDate" matInput placeholder="matchDate">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select name="matchType" formControlName="matchType" placeholder="Select Format">
+              <mat-option [value]="'test'">Test</mat-option>
+              <mat-option [value]="'odi'">ODI</mat-option>
+              <mat-option [value]="'t20'">T20</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+              <mat-select name="matchStatus" formControlName="matchStatus" placeholder="Select Type">
+                <mat-option [value]="'upcoming'">UPCOMING</mat-option>
+                <mat-option [value]="'lose'">LOST</mat-option>
+                <mat-option [value]="'win'">WIN</mat-option>
+                <mat-option [value]="'draw'">Draw</mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+          <div class="add-bottom-padding">
+          </div>
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button>
+            <button mat-raised-button color="warn" (click)="onClear()">clear</button>
+            <img *ngIf="loading" src="https://miro.medium.com/max/882/1*8NJgObmgEVhNWVt3poeTaA.gif"/>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</div>

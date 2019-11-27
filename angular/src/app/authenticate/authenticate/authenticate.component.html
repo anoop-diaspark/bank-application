@@ -1,0 +1,52 @@
+<div id="login">
+  <h3 class="text-center text-white pt-5">Login form</h3>
+  <div class="container">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+        <div id="login-box" class="col-md-12">
+
+          <div class="alert alert-danger alert-dismissible" *ngIf="error">
+            <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{error}}
+          </div>
+          <form id="login-form" class='container' action="" [formGroup]="form">
+            <h3 class="text-center text-info">Login</h3>
+            <div class="form-group">
+              <label for="username" class="text-info">Username:</label><br>
+              <input type="text" name="username" id="username" formControlName="userName" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
+              <div *ngIf="submitted && !!f.userName.errors" class="invalid-feedback">
+                <div *ngIf="!!f.userName.errors.required">User Name is required</div>
+                <div *ngIf="!!f.userName.errors.pattern">Invalid input</div>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="text-info">Password:</label><br>
+              <input type="password" name="password" id="password" class="form-control" formControlName="password"
+                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback">
+                <div *ngIf="!!f.password.errors.required">Password is required</div>
+                <div *ngIf="!!f.password.errors.pattern">Invalid input</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me"
+                    name="remember-me" type="checkbox"></span></label>
+              <div id="register-link" class="text-right"><br>
+                <a class="text-info" (click)="registerClick()">Register here</a>
+              </div><br>
+              <button class="btn btn2 btn-lg btn-block" [disabled]="loading" (click)="onSubmit()"><i class="fa"
+                  [ngClass]="{'fa-spin fa-spinner': loading}">
+
+                </i> {{button}}</button>
+
+
+              <!-- </div> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

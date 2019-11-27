@@ -1,0 +1,27 @@
+<div class='container'>
+    <div>
+        <p class="h4 mb-4" style="color:#17a2b8!important;text-align: center;">File Upload</p>
+        <div class="input-group">
+            
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="file" (change)="handleFileInput($event.target.files)">
+                <label class="custom-file-label" #labelImport  for="file">Choose a File</label>
+            </div>
+        </div>
+
+        <br>
+        <div>
+            <button class="btn btn2" (click)="uploadFileToActivity()">Submit file</button>
+        </div><br>
+
+        <button class="btn btn2" (click)="download()" *ngIf='isSubmitted'> Download</button>
+
+        <div>
+            <br>
+            <button class="btn btn2" [disabled]="loading" (click)="downloadExcel()"><i class="fa"
+                    [ngClass]="{'fa-spin fa-spinner': loading, 'fa-download': !loading}">
+
+                </i> {{button}}</button>
+        </div>
+    </div>
+</div>
