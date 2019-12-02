@@ -1,0 +1,1 @@
+insert into customersequence (name,id) values ("customersequence",9999999);

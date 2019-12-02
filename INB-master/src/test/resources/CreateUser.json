@@ -1,0 +1,105 @@
+Registration-post
+http://localhost:8080/user/registration
+user registration
+{	
+	"firstName": "Prachi",
+	"lastName": "Bhardwaj",
+	"username": "prachi",
+	"password": "password",
+	"addressLine1": "Indore",
+	"city": "Ujjain",
+	"state": "M.P",
+	"zip": 490002,
+	"phone": 1234567890,
+	"email": "prachi@gmail.com"
+}
+admin regisrtartion-Post-http://localhost:8080/user/registration
+{	
+	"firstName": "esha",
+	"lastName": "a",
+	"username": "admin",
+	"password": "password",
+	"addressLine1": "Indore",
+	"city": "Ujjain",
+	"state": "M.P",
+	"zip": 490002,
+	"phone": 1234567890,
+	"email":"ayugmail.com",
+	"admin": true
+}
+
+
+
+User Login-post
+http://localhost:8080/user/login
+{
+  "username":"prachi",
+  "password":"password"
+}
+
+admin login-POST
+{
+  "username":"prachi",
+  "password":"password",
+  "admin":true
+}
+
+
+Contact us-POST
+http://localhost:8080/user/contact-us
+{ "username":"eshdsrsdrf"",
+"firstName":"Ayushijkljkljlkjl",
+"lastName":"Bhardwajnjkkjk",
+"queries":"ACCount opening problmgygyu"
+}
+
+
+Login aprrove by admin-PUT
+   http://localhost:8080/user/update/2?status=approved
+   
+   
+ Admin to fetch list of pending and rejected and approvd users login---GET
+ http://localhost:8080/user/fetch?status=approved
+ 
+ 
+ User to add account-----POST
+ http://localhost:8080/account/add
+ { "accountType":0,
+   "customerId":1
+ }
+ 
+ 
+Request to add money to admin-   POST
+http://localhost:8080/transaction/add
+	{
+		"amount":200,
+    "sourceAccountNo":1,
+    "targetAccountNo":1
+	}
+	
+ admin get the list of pending request money list-----GET
+ http://localhost:8080/transaction/fetch/admin?status=pending
+
+admin chnge status from pending to approve for adding money-----     PUT
+http://localhost:8080/transaction/update/2?status=approved
+
+
+user last 5 trnsaction--- GET
+ http://localhost:8080/transaction/fetch?accountNumber=2&miniStatement=true
+ 
+user and admin to get detailed transaction details---GET
+ http://localhost:8080/transaction/fetch?accountNumber=2
+ 
+ 
+ User to pay bills-----POST
+  http://localhost:8080/transaction/pay/utility
+  
+  {
+    "amount":100,
+   "sourceAccountNo":1
+    "utilityType":2
+  
+  }
+ 
+ 
+ 

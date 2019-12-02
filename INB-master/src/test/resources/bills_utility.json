@@ -1,0 +1,30 @@
+{
+  "firstName": "Reliance",
+  "lastName": "Internet",
+  "username": "internet",
+  "password": "password",
+  "addressLine1": "Indore",
+  "city": "Ujjain",
+  "state": "M.P",
+  "zip": 490002,
+  "phone": 1234567890,
+  "email": "reliance@gmail.com"
+}
+
+
+#---------------------------------------
+
+
+{
+  "firstName": "Reliance",
+  "lastName": "Internet",
+  "username": "reliance",
+  "password": "password",
+  "addressLine1": "Indore",
+  "city": "Ujjain",
+  "state": "M.P",
+  "zip": 490002,
+  "phone": 1234567890,
+  "email": "reliance@gmail.com"
+}
+
